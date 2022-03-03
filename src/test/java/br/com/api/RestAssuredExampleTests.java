@@ -28,13 +28,13 @@ public class RestAssuredExampleTests {
     {
 
                 given()
-                .when()
-                .get("/posts/1")
-                .then()
-                .statusCode(200)
-                .body("userId", is(1))
-                .body("id", is(1))
-                .body("title", containsString("sunt aut facere"));
+                        .when()
+                        .get("/posts/1")
+                        .then()
+                        .statusCode(200)
+                        .body("userId", is(1))
+                        .body("id", is(1))
+                        .body("title", containsString("sunt aut facere"));
     }
 
     @Test
@@ -42,11 +42,11 @@ public class RestAssuredExampleTests {
     {
 
                given()
-               .contentType(ContentType.JSON)
-               .when()
-               .get("/posts/")
-               .then()
-               .extract().response();
+                        .contentType(ContentType.JSON)
+                        .when()
+                        .get("/posts/")
+                        .then()
+                        .extract().response();
 
     }
 
@@ -55,12 +55,14 @@ public class RestAssuredExampleTests {
         public void getRequestWithParam(){
 
         given().
-                queryParam("id", 1).
-                when().
-                get("/posts/").
-                then().
-                statusCode(200).log().all().
-                body("body", hasItem(containsString("expedita")));
+                queryParam("id", 1)
+                .when()
+                .get("/posts/")
+                .then()
+                .statusCode(200)
+                .log()
+                .all()
+                .body("body", hasItem(containsString("expedita")));
 
     }
 
@@ -127,7 +129,8 @@ public class RestAssuredExampleTests {
 
         Register register = new Register("Test2", "Test3", 180);
 
-      Response response =  given()
+      Response response =
+              given()
                 .contentType(ContentType.JSON)
                 .body(register)
                 .when()
@@ -142,5 +145,19 @@ public class RestAssuredExampleTests {
 
     }
 
+    @Test
+    public void deleteRequest(){
+
+   Response response =
+                given()
+                        .contentType(ContentType.JSON)
+                        .when()
+                        .delete("/posts/1")
+                        .then()
+                        .extract().response();
+
+    Assert.assertEquals(200,response.statusCode());
+
+    }
 
 }
