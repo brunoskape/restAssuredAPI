@@ -1,1 +1,8 @@
-Pequeno exemplo utilizando Java + RestAssured + TestNG + Maven
+##RestAssured 
+
+Pequeno exemplo utilizando de Testes de API utilizando:
+
+- Java <br> 
+- RestAssured 
+- TestNG 
+- Maven
