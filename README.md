@@ -1,0 +1,1 @@
+Pequeno exemplo utilizando Java + RestAssured + TestNG + Maven
