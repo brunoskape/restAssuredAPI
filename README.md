@@ -6,3 +6,12 @@ Pequeno exemplo utilizando de Testes de API utilizando:
 - RestAssured 
 - TestNG 
 - Maven
+
+
+api test: http://jsonplaceholder.typicode.com
+
+Demonstração de diversos modos de utilização do PUT: 
+
+- String concatenation 
+- HashMap 
+- Object Mapping
